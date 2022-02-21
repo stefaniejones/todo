@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
+// // added this small component section but not sure if I was supposed to
+@Component({
+  selector: 'app-item',
+  templateUrl: './item.component.html',
+  styleUrls: ['./item.component.css']
+})
+
 export class AppComponent {
   title = 'todo';
 
@@ -31,5 +38,10 @@ export class AppComponent {
     }
     return this.allItems.filter(item => this.filter === 'done' ? item.done : !item.done);
   }
-  
+
+  // Giving me issues!!
+  remove(item) {
+    this.allItems.splice(this.allItems.indexOf(item), 1);
+  }
+
 }
