@@ -11,6 +11,13 @@ export class AppComponent {
 
   filter: 'all' | 'active' | 'done' = 'all';
 
+  addItem(description: string) {
+    this.allItems.unshift({
+      description,
+      done: false
+    });
+  } 
+
   allItems = [
     { description: 'eat', done: true },
     { description: 'sleep', done: false },
@@ -24,5 +31,5 @@ export class AppComponent {
     }
     return this.allItems.filter(item => this.filter === 'done' ? item.done : !item.done);
   }
-
+  
 }
